@@ -1,0 +1,13 @@
+    # List class -- where user will see the list of students
+    # Student class -- where user will add the information of student (Name, Age, Major and Undergrad or Grad)
+    # Grad class -- if student is Graduated (Grad year and Grad school)
+    # Under-Grad class -- if student is Under-Grad (Expected Grad Year and Grad School)
+
+    # Name = String
+    # Age = int
+    # Major = String
+    # Under or Grad = boolean
+
+    # In List class, user wil see the list of students and can choose to see students details
+
+    # user can save all of the students data to file and save it in computer memory.. 
