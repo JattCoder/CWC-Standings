@@ -8,7 +8,6 @@ class List
     def initialize(data)
         @web_data = data
         @@all_stus = []
-        @just 
     end
 
     def start
