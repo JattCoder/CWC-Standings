@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative './lib/cricket_database'
+require_relative '../lib/cricket_database'
+
 CricketDatabase::CLI.new.call

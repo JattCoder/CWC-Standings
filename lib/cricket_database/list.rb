@@ -1,23 +1,21 @@
-require_relative 'student.rb'
+require_relative 'team.rb'
 require 'pry'
 
 class List
 
-    attr_accessor :web_data
-
+    attr_accessor :web_data, :all_stus
+    @@all_stus = []
     def initialize(data)
-        @web_data = data
-        @@all_stus = []
+        binding.pry
     end
 
     def start
-        binding.pry
-        new_stu = Student.new
+        new_team = Team.new
         check = false
         while check == false
             input = getinput.downcase
             if input == "y"
-                new_stu.create
+                new_team.create
                 check = true
                 @@all_stus << new_stu
                 message
@@ -31,13 +29,12 @@ class List
     end
 
     def message
-        puts "\nWould you like to add more Students? (Y/n)"
+        puts "\nWould you like to add more teams in Standing? (Y/n)"
         start
     end
 
     def print_stus
-        id = 001
-        puts "\nHere is the list of Students."
+        puts "\nHere is the list of Cricket Team according to their ranking."
         @@all_stus.each do |student|
             puts "#{id}: #{student.name}"
             id += 1

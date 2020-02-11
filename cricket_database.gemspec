@@ -1,8 +1,8 @@
-require_relative 'lib/students_database/version'
+require_relative 'lib/cricket_database/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "students_database"
-  spec.version       = StudentsDatabase::VERSION
+  spec.name          = "cricket_database"
+  spec.version       = CricketDatabase::VERSION
   spec.authors       = ["Harmandeep S. Mand"]
   spec.email         = ["harmandeepmand.hm@gmail.com"]
 
