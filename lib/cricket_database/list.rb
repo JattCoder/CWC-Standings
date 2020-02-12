@@ -6,60 +6,95 @@ class List
     attr_accessor :web_data, :all_stus
     @@all_stus = []
     def initialize(data)
-        binding.pry
+        data.each do |rank,team_data|
+            name = team_data[:country]
+            initials = team_data[:initials]
+            matches = team_data[:matches]
+            won = team_data[:won]
+            lost = team_data[:lost]
+            draw = team_data[:draw]
+            points = team_data[:points]
+            add_team = Team.new(name,initials,rank,matches,won,lost,draw,points)
+            @@all_stus << add_team
+        end
+        if @@all_stus.length > 0
+            puts "\nCountries in CWC Standing"
+            @@all_stus.each do |team|
+                puts "#{team.rank}: #{team.country}"
+            end
+            puts "\nSelect team to open details or type [ADD] to add new team or [EXIT] to leave."
+        else
+            puts "\nFound 0 Teams. Press (Y/y) to add new team."
+        end
+        start
     end
 
     def start
-        new_team = Team.new
+        new_team = Team.new("","","","","","","","")
         check = false
         while check == false
             input = getinput.downcase
-            if input == "y"
+            if input == "add"
                 new_team.create
                 check = true
-                @@all_stus << new_stu
+                @@all_stus << new_team
                 message
-            elsif input == "n"
+            elsif input == "exit"
                 check = true
-                print_stus
-            else 
-                puts "Please select (Y/n)"
+                goodbye
+            else
+                selection = Integer(input) rescue false
+                if selection == false
+                    puts "Not Appropriate Selection!"
+                else
+                    if selection > @@all_stus.length
+                        puts "Invalid Selection!"
+                    else
+                        selected = @@all_stus[selection - 1]
+                        show_details(selected)
+                    end
+                end
             end
+        end
+    end
+
+    def goodbye
+        puts "Thank you for using Harmandeep's Application. Goodbye"
+    end
+
+    def show_details(selected)
+        puts "#{selected.rank}. #{selected.country}:"
+        puts "    Name: #{selected.country} (#{selected.initials})"
+        puts "    Standing: #{selected.rank}"
+        puts "    Total Matches: #{selected.matches}"
+        puts "    Total Wins: #{selected.won}"
+        puts "    Total Loses: #{selected.lost}"
+        puts "    Total Draw: #{selected.draw}"
+        puts "    Total Points: #{selected.points}"
+        puts "\nType [BACK] to go back to WCW Standings or [EXIT] to leave."
+        afterdetails
+    end
+
+    def afterdetails
+        input = getinput.to_s.downcase
+        if input == "back"
+            puts "\nCountries in CWC Standing"
+            @@all_stus.each do |team|
+                puts "#{team.rank}: #{team.country}"
+            end
+            puts "\nSelect team to open details or type [ADD] to add new team or [EXIT] to leave."
+            start
+        elsif input == "exit"
+            goodbye
+        else
+            puts "Did not recognize your input. Try Again"
+            afterdetails
         end
     end
 
     def message
         puts "\nWould you like to add more teams in Standing? (Y/n)"
         start
-    end
-
-    def print_stus
-        puts "\nHere is the list of Cricket Team according to their ranking."
-        @@all_stus.each do |student|
-            puts "#{id}: #{student.name}"
-            id += 1
-        end
-        show_details
-    end
-
-    def show_details
-        puts "\nType Name or Number or Exit to Main-Menu."
-        input = gets.chomp
-        selection = Integer(input) rescue false
-        binding.pry
-        if selection && (selection - 1) < @@all_stus.length
-            stu_info = @@all_stus[selection - 1]
-            puts "Name: #{stu_info.name}\nAge: #{stu_info.age}\nMajor: #{stu_info.major}\nGraduated: #{stu_info.grad}\nYear: #{stu_info.year}\nSchool: #{stu_info.school}\n"
-            print_stus
-        elsif !selection
-            @@all_stus.select do |stu_info|
-                puts "Name: #{stu_info.name}\nAge: #{stu_info.age}\nMajor: #{stu_info.major}\nGraduated: #{stu_info.grad}\nYear: #{stu_info.year}\nSchool: #{stu_info.school}\n" if input == stu_info.name
-            end
-            print_stus
-        else
-            puts "Please enter valid Name or ID."
-            show_details
-        end
     end
 
     def getinput

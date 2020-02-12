@@ -13,7 +13,6 @@ class CricketDatabase::CLI
         puts "\nWelcome to Cricket World Cup Standings."
         if data
             puts "*****Found Cricket World Cup Standings ----- @ -- www.cricketworldcup.com******"
-            puts "\nSelect team to open details or press (Y/y) to add new team."
             fixdata(data)
         else
             puts "Failed to find Standings online. Try Again? (Y/n)"
@@ -75,7 +74,7 @@ class CricketDatabase::CLI
 
     def startapp(data)
         start_app = List.new(data)
-        start_app.start
+        #start_app.start
     end
 
 end

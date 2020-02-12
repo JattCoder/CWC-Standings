@@ -2,36 +2,41 @@ require_relative 'players.rb'
 require 'pry'
 class Team
 
-    attr_accessor :name, :rank, :matches, :won, :lost, :draw, :players
+    attr_accessor :country, :initials, :rank, :matches, :won, :lost, :draw, :points, :players
 
-    def initialize(name,rank,matches,won,lost,draw)
+    def initialize(name = "",initials = "",rank = "",matches = "",won = "",lost = "",draw = "",points = "")
         @@players = []
         if name != ""
-            @name = name
+            @country = name
+            @initials = initials
             @rank = rank
             @matches = matches
             @won = won
             @lost = lost
             @draw = draw
+            @points = points
         end
     end
 
     def create
         puts "\nEnter Team Name."
-        @name = getinput.to_s
+        @country = getinput.to_s
+        puts "\nEnter Team Initials. ex: US"
+        @initials = getinput.to_s
         puts "\nEnter Team Rank."
         @rank = getinput.to_i
         puts "\nEnter Matches Played."
         @matches = getinput.to_i
-        puts "\nEnter Matches Won"
+        puts "\nEnter Matches Won."
         @won = getinput.to_i
-        puts "\nEnter Matches Lost"
+        puts "\nEnter Matches Lost."
         @lost = getinput.to_i
-        puts "\nEnter Matches Draw due to weather or equal score"
+        puts "\nEnter Matches Draw due to weather or equal score."
         @draw = getinput.to_i
+        puts "\nEnter total points team earned."
+        @points = getinput.to_i
         player = Players.new
         @@players = player
-        binding.pry
     end
 
     def getinput
