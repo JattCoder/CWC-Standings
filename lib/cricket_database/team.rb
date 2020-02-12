@@ -1,11 +1,11 @@
-require_relative 'players.rb'
 require 'pry'
 class Team
 
-    attr_accessor :country, :initials, :rank, :matches, :won, :lost, :draw, :points, :players
+    attr_accessor :country, :initials, :rank, :matches, :won, :lost, :draw, :points, :rank_available
 
-    def initialize(name = "",initials = "",rank = "",matches = "",won = "",lost = "",draw = "",points = "")
-        @@players = []
+    def initialize(name = "",initials = "",rank = "",matches = "",won = "",lost = "",draw = "",points = "",rank_available)
+        @@rank_available = []
+        @@rank_available = rank_available
         if name != ""
             @country = name
             @initials = initials
@@ -23,8 +23,19 @@ class Team
         @country = getinput.to_s
         puts "\nEnter Team Initials. ex: US"
         @initials = getinput.to_s
-        puts "\nEnter Team Rank."
-        @rank = getinput.to_i
+        rank_open = true
+        while rank_open == true
+            puts "\nEnter Team Rank."
+            @rank = getinput.to_i
+            if @rank == 0
+                puts "Rank #{0} is not available!"
+            else
+                rank_open = check_position(@rank)
+                if rank_open == true
+                    puts "Sorry. Rank #{@rank} is occupied!"
+                end
+            end
+        end
         puts "\nEnter Matches Played."
         @matches = getinput.to_i
         puts "\nEnter Matches Won."
@@ -35,8 +46,19 @@ class Team
         @draw = getinput.to_i
         puts "\nEnter total points team earned."
         @points = getinput.to_i
-        player = Players.new
-        @@players = player
+    end
+
+    def check_position(position)
+        selected = @@rank_available[position - 1]
+        if position > @@rank_available.length
+            false
+        else
+            if selected.rank.to_i == position
+                true
+            else
+                false
+            end
+        end
     end
 
     def getinput
