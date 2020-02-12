@@ -28,12 +28,9 @@ class Team
             puts "\nEnter Team Rank."
             @rank = getinput.to_i
             if @rank == 0
-                puts "Rank #{0} is not available!"
+                puts "Rank #{@rank} is not available!"
             else
                 rank_open = check_position(@rank)
-                if rank_open == true
-                    puts "Sorry. Rank #{@rank} is occupied!"
-                end
             end
         end
         puts "\nEnter Matches Played."
@@ -50,10 +47,14 @@ class Team
 
     def check_position(position)
         selected = @@rank_available[position - 1]
-        if position > @@rank_available.length
+        if position == @@rank_available.length + 1
             false
+        elsif position > @@rank_available.length + 1
+            puts "Can not skip Rank #{@@rank_available.length + 1}"
+            true
         else
             if selected.rank.to_i == position
+                puts "Rank #{position} is occupied!"
                 true
             else
                 false
