@@ -91,7 +91,7 @@ class List
             goodbye
         else
             puts "Did not recognize your input. Try Again"
-            afterdetails
+            afterdetails(del)
         end
     end
 

@@ -48,6 +48,9 @@ class CricketDatabase::CLI
                 else
                     getscore = data[count][0...(((hash_position + 1).to_s.length) * -1)]
                     getscore = getscore[9...getscore.length]
+                    if getscore == nil
+                        getscore = 0
+                    end
                     team_hash[hash_position.to_s] = {
                         :country => country,
                         :initials => initials,
