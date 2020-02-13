@@ -7,6 +7,8 @@
     # Age = int
     # Major = String
     # Under or Grad = boolean
+    # under -> when is the expected grad year and what school
+    # grad -> when was the graduation and from what school
 
     # In List class, user wil see the list of students and can choose to see students details
 

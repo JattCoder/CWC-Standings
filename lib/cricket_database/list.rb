@@ -56,9 +56,9 @@ class List
             @@all_stus.each do |team|
                 puts "#{team.rank}: #{team.country}"
             end
-            puts "\nSelect team to open details or type [ADD] to add new team or [EXIT] to leave."
+            puts "\nSelect team to open details or type [ADD] to add new team or type [SAVE] to save data to txt file  or [EXIT] to leave."
         else
-            puts "\nFound 0 Teams. Press (Y/y) to add new team."
+            puts "\nFound 0 Teams. Press [ADD] to add new team."
         end
         start
     end
