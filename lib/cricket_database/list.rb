@@ -30,6 +30,16 @@ class List
                 check = true
                 @@all_stus << new_team
                 print
+            elsif input == "save"
+                standing_data = File.open("CWC_Standings.txt", "w")
+                position = 1
+                standing_data.puts "2019 Cricket World Cup Standings\n\n"
+                @@all_stus.each do |team_class|
+                    standing_data.puts "#{position}: #{team_class.country} (#{team_class.initials}) \n     Name: #{team_class.country} \n     Standing: #{team_class.rank} \n     Total Matches: #{team_class.matches} \n     Total Wins: #{team_class.won} \n     Total Loses: #{team_class.lost} \n     Toatl Draw: #{team_class.draw} \n     Total Points: #{team_class.points}\n\n"
+                    position += 1
+                end
+                standing_data.close
+                puts "Successfully Saved CWC Standings"
             elsif input == "exit"
                 check = true
                 goodbye
