@@ -31,7 +31,7 @@ class List
                 @@all_stus << new_team
                 print
             elsif input == "save"
-                
+                save
             elsif input == "exit"
                 check = true
                 goodbye
