@@ -81,19 +81,6 @@ class List
         puts "Thank you for using Harmandeep's Application. Goodbye"
     end
 
-    def show_details(selected)
-        puts "#{selected.rank}. #{selected.country}:"
-        puts "    Name: #{selected.country} (#{selected.initials})"
-        puts "    Standing: #{selected.rank}"
-        puts "    Total Matches: #{selected.matches}"
-        puts "    Total Wins: #{selected.won}"
-        puts "    Total Loses: #{selected.lost}"
-        puts "    Total Draw: #{selected.draw}"
-        puts "    Total Points: #{selected.points}"
-        puts "\nType [DELETE] to delete #{selected.country} or [BACK] to go back to WCW Standings or [EXIT] to leave."
-        afterdetails(selected.rank.to_i - 1)
-    end
-
     def afterdetails(del)
         input = getinput.to_s.downcase
         if input == "back"
