@@ -48,7 +48,7 @@ class CricketDatabase::CLI
     end
 
     def exit
-        puts "Thank you for using Harmandeep's Application."
+        puts "\nThank you for using Harmandeep's Application.\n\n"
     end
 
 end
