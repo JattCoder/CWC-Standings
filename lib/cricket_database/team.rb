@@ -30,9 +30,6 @@ class Team
                 puts "\nRank #{@rank} is not available!"
             else
                 rank_open = check_position(teams)
-                if rank_open == true
-                    puts "\nRank #{@rank} is occupied!"
-                end
             end
         end
         puts "\nEnter Matches Played."
@@ -50,11 +47,14 @@ class Team
 
     def check_position(teams)
         if @rank.to_i > (teams.length + 1)
-            puts "We can not skip position ##{teams.length + 1}"
+            puts "We can not skip position ##{teams[teams.length - 1].rank.to_i + 1}"
             return true
         else
             teams.each do |team|
-                return true if team.rank == @rank
+                if team.rank == @rank
+                    puts "\nRank #{@rank} is occupied!"
+                    return true
+                end
             end
             return false
         end

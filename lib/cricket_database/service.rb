@@ -36,7 +36,6 @@ class Service
         standing_data.puts "2019 Cricket World Cup Standings\n\n"
         teams.each do |team_class|
             standing_data.puts "#{team_class.rank}: #{team_class.country} (#{team_class.initials}) \n     Name: #{team_class.country} \n     Standing: #{team_class.rank} \n     Total Matches: #{team_class.matches} \n     Total Wins: #{team_class.won} \n     Total Loses: #{team_class.lost} \n     Toatl Draw: #{team_class.draw} \n     Total Points: #{team_class.points}\n\n"
-            position += 1
         end
         standing_data.close
         puts "Successfully Saved CWC Standings"
