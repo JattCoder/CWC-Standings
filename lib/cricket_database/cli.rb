@@ -1,54 +1,54 @@
 require 'pry'
 require_relative 'scrape'
 require_relative 'team'
+require_relative 'service'
 
 class CricketDatabase::CLI
 
-    attr_accessor :teams
+    attr_accessor :teams, :selection
 
     def initialize
         webdata = Scrape.new
         @teams = webdata.teams
+        puts "\n Welcome to 2019 CWC Standings."
     end
 
     def startapp
-        @teams.printlist
+        Service.new.printlist(@teams)
         getinput
     end
 
-    def exit
-        puts "Thank you for using Harmandeep's Application."
-    end
-
     def getinput
-        previous = @teams.select
         input = gets.chomp.downcase
         selection = Integer(input) rescue false
         if selection == false
             if input == "add"
-                @teams.create
-                getinput
+                newclass = Team.new.create(@teams)
+                startapp
             elsif input == "save"
-                @teams.save_to_file
-                getinput
+                Service.new.save_to_file(@teams)
+                startapp
             elsif input == "back"
-                if previous != ""
-                    @teams.select = ""
-                    @teams.printlist
-                end
-                getinput
+                @selection = ""
+                startapp
             elsif input == "delete"
-                @teams.delete(previous)
-                getinput
+                @teams = Service.new.delete(@selection.to_i,@teams)
+                startapp
             elsif input == "exit"
                 exit
             else
-                puts "Invalid Input!"
+                puts "Invalid Input! Try Again."
+                getinput
             end
         else
-            @teams.printdata(selection)
+            Service.new.printdata(input,@teams)
+            @selection = input.to_s
             getinput
         end
+    end
+
+    def exit
+        puts "Thank you for using Harmandeep's Application."
     end
 
 end

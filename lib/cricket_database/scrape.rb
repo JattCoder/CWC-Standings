@@ -25,7 +25,7 @@ class Scrape
             points = element.css('td')[8].text
             attributes.push(country,initials,position,played)
             attributes.push(won,lost,draw,points)
-            @teams = Team.new(attributes)
+            @teams = Team.new.create_from_hash(attributes)
         end
     end
 end
