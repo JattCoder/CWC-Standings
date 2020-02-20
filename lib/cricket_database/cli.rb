@@ -1,8 +1,6 @@
-require 'pry'
 require_relative 'scrape'
 require_relative 'team'
 require_relative 'service'
-
 class CricketDatabase::CLI
 
     attr_accessor :teams, :selection
