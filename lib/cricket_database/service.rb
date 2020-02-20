@@ -9,9 +9,6 @@ class Service
     end
 
     def printdata(position,teams)
-        #add loop here to get right data
-        #to get data based off of selection of user
-        #not based off of array
         found = false
         teams.each do |selected|
             if selected.rank == position
