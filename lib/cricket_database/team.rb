@@ -16,8 +16,4 @@ class Team
             @@teams << self
         end
     end
-
-    def print
-        binding.pry
-    end
 end

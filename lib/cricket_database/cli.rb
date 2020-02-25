@@ -70,7 +70,6 @@ class CricketDatabase::CLI
         puts "\nEnter total points team earned."
         attributes << points = gets.chomp.to_s
         newteam = Team.new.create_from_hash(attributes)
-        binding.pry
     end
 
     def check_position(rank)
