@@ -18,7 +18,7 @@ class CricketDatabase::CLI
         selection = Integer(input) rescue false
         if selection == false
             if input == "add"
-                newclass = Team.new.create(@teams)
+                addnew
                 startapp
             elsif input == "save"
                 Service.new.save_to_file(@teams)
@@ -39,6 +39,77 @@ class CricketDatabase::CLI
             Service.new.printdata(input,@teams)
             @selection = input.to_s
             getinput
+        end
+    end
+
+    def addnew
+        attributes = []
+        puts "\nEnter Team Name."
+        attributes << country = gets.chomp.to_s
+        puts "\nEnter Team Initials. ex: US"
+        attributes << initials = gets.chomp.to_s
+        rank_open = true
+        while rank_open == true
+            puts "\nEnter Team Rank."
+            rank = gets.chomp.to_s
+            if rank == "0"
+                puts "\nRank #{rank} is not available!"
+            else
+                rank_open = check_position(rank)
+                attributes << rank if rank_open == false
+            end
+        end
+        puts "\nEnter Matches Played."
+        attributes << matches = gets.chomp.to_s
+        puts "\nEnter Matches Won."
+        attributes << won = gets.chomp.to_s
+        puts "\nEnter Matches Lost."
+        attributes << lost = gets.chomp.to_s
+        puts "\nEnter Matches Draw due to weather or equal score."
+        attributes << draw = gets.chomp.to_s
+        puts "\nEnter total points team earned."
+        attributes << points = gets.chomp.to_s
+        newteam = Team.new.create_from_hash(attributes)
+        binding.pry
+    end
+
+    def check_position(rank)
+        has = false
+        lastposition = @teams[@teams.length - 1].rank.to_i + 1
+        all_nums = (1...lastposition).to_a
+        occupied = []
+        @teams.each do |team|
+            if team.rank.to_i == rank.to_i
+                puts "Rank #{rank.to_i} is Occupied!"
+                return true
+            end
+            occupied << team.rank.to_i
+        end
+        getmissing = all_nums - occupied
+        if getmissing.include?(rank.to_i)
+            index_num = getmissing.find_index(rank.to_i)
+            count = index_num
+            loop_to = getmissing.length
+            while count < loop_to
+                getmissing.delete_at(index_num)
+                count += 1
+            end
+            if getmissing.length > 0
+                puts "These positions are still missing."
+                getmissing.each do |position|
+                    puts ":Position #{position}"
+                end
+                return true
+            else
+                return false
+            end
+        else
+            if rank.to_i > (@teams[@teams.length - 1].rank.to_i + 2)
+                puts "Can not skip #{@teams[@teams.length - 1].rank.to_i + 1}"
+                return true
+            else
+                return false
+            end
         end
     end
 

@@ -1,0 +1,65 @@
+2019 Cricket World Cup Standings
+
+1: India (IND) 
+     Name: India 
+     Standing: 1 
+     Total Matches: 9 
+     Total Wins: 7 
+     Total Loses: 1 
+     Toatl Draw: 1 
+     Total Points: 15
+
+2: Australia (AUS) 
+     Name: Australia 
+     Standing: 2 
+     Total Matches: 9 
+     Total Wins: 7 
+     Total Loses: 2 
+     Toatl Draw: 0 
+     Total Points: 14
+
+3: England (ENG) 
+     Name: England 
+     Standing: 3 
+     Total Matches: 9 
+     Total Wins: 6 
+     Total Loses: 3 
+     Toatl Draw: 0 
+     Total Points: 12
+
+4: New Zealand (NZ) 
+     Name: New Zealand 
+     Standing: 4 
+     Total Matches: 9 
+     Total Wins: 5 
+     Total Loses: 3 
+     Toatl Draw: 1 
+     Total Points: 11
+
+7: South Africa (SA) 
+     Name: South Africa 
+     Standing: 7 
+     Total Matches: 9 
+     Total Wins: 3 
+     Total Loses: 5 
+     Toatl Draw: 1 
+     Total Points: 7
+
+9: West Indies (WI) 
+     Name: West Indies 
+     Standing: 9 
+     Total Matches: 9 
+     Total Wins: 2 
+     Total Loses: 6 
+     Toatl Draw: 1 
+     Total Points: 5
+
+10: Afghanistan (AFG) 
+     Name: Afghanistan 
+     Standing: 10 
+     Total Matches: 9 
+     Total Wins: 0 
+     Total Loses: 9 
+     Toatl Draw: 0 
+     Total Points: 0
+

@@ -2,6 +2,7 @@ class Service
 
     def printlist(teams)
         puts "\n List of teams."
+        teams.sort! { |team1, team2|  team1.rank.to_i <=> team2.rank.to_i }
         teams.each do |team|
             puts "   #{team.rank}. #{team.country}"
         end
@@ -39,7 +40,9 @@ class Service
     end
 
     def delete(position,teams)
-        teams.delete_at(position - 1)
+        teams.delete_if do |team|
+            position == team.rank.to_i
+        end
         teams
     end
 
