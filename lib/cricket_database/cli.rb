@@ -105,10 +105,18 @@ class CricketDatabase::CLI
             end
         else
             if rank.to_i > (@teams[@teams.length - 1].rank.to_i + 2)
-                puts "Can not skip #{@teams[@teams.length - 1].rank.to_i + 1}"
+                puts "Position #{@teams[@teams.length - 1].rank.to_i + 1} is still missing."
                 return true
             else
-                return false
+                if getmissing.length > 0
+                    puts "These positions are still missing."
+                    getmissing.each do |position|
+                        puts ":Position #{position}"
+                    end
+                    return true
+                else
+                    return false
+                end 
             end
         end
     end
