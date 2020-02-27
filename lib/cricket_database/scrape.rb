@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-
 class Scrape
     
     attr_accessor :teams

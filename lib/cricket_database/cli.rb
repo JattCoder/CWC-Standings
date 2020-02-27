@@ -4,7 +4,8 @@ class CricketDatabase::CLI
 
     def initialize
         webdata = Scrape.new
-        @teams = webdata.teams
+        @teams = Team.all
+        binding.pry
         puts "\n Welcome to 2019 CWC Standings."
     end
 

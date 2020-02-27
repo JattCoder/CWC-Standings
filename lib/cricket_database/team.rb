@@ -1,10 +1,9 @@
-require 'pry'
 class Team
 
     attr_accessor :country, :initials, :rank, :matches, :won, :lost, :draw, :points
     @@teams = []
     def create_from_hash(attributes)
-        if attributes[0] != ""
+        if !attributes.empty?
             @country = attributes[0]
             @initials = attributes[1]
             @rank = attributes[2]
@@ -15,5 +14,9 @@ class Team
             @points = attributes[7]
             @@teams << self
         end
+    end
+
+    def self.all
+        @@teams
     end
 end
