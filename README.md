@@ -22,7 +22,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To Start this Application
+
+    $ ruby ./bin/cricket_database
+   
+It will Scrape data from Cricket World Cup Website and display the data in Terminal. Data can be modified and save it as TXT File in Application Directory.
 
 ## Development
 
