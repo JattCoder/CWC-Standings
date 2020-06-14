@@ -1,8 +1,15 @@
-# StudentsDatabase
+# CricketDatabase
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/students_database`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to CLI Cricket Database application, where users can see the latest cricket world championship results. It will automatically scrape the data from cricket world championship website and display the data in order of position of the team. 
 
-TODO: Delete this and the text above, and describe your gem
+1. Users can select a team to see details (Winning, Losses and Draw)
+2. Users can delete a team from list
+3. Users can add a team to the list with personal preference
+
+User can save a list to personal device in .txt file with/without changes made to the list.
+
+Thank You
+Enjoy Cricket Database!
 
 ## Installation
 
@@ -25,8 +32,6 @@ Or install it yourself as:
 To Start this Application
 
     $ ruby ./bin/cricket_database
-   
-It will Scrape data from Cricket World Cup Website and display the data in Terminal. Data can be modified and save it as TXT File in Application Directory.
 
 ## Development
 
@@ -45,4 +50,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the StudentsDatabase project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/students_database/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the CricketDatabase project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/students_database/blob/master/CODE_OF_CONDUCT.md).
