@@ -6,7 +6,7 @@ Welcome to CLI Cricket Database application, where users can see the latest cric
 2. Users can delete a team from list
 3. Users can add a team to the list with personal preference
 
-User can save a list to personal device in .txt file with/without changes made to the list.
+User can save a list to personal device in (CWC_Standings.txt) file with/without changes made to the list.
 
 Thank You
 Enjoy Cricket Database!
